@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>VANT BD Promo</title><meta name="viewport" content="width=1920">
+<link rel="stylesheet" href="../../lib/stage.css">
+<style>
+:root{--bg:#0E1430;--bg2:#18214A;--card:#1C2656;--acc:#FF6B2C;--acc2:#FFC23D;--mint:#2FD3A6;--txt:#FFFFFF;--mute:#A9B1D6;
+  --f:"Inter","Inter Display",system-ui,sans-serif;--fd:"Inter Display","Inter",system-ui,sans-serif}
+html,body{background:var(--bg)}
+.frame{background:var(--bg) !important;background-image:radial-gradient(1200px 700px at 70% 30%,#1B2660 0%,var(--bg) 70%) !important}
+.scene{inset:0 !important;left:0 !important;right:0 !important;top:0 !important;bottom:0 !important;font-family:var(--f);color:var(--txt)}
+.abs{position:absolute}
+.mask{overflow:hidden;display:block;padding-bottom:.08em}
+.mask>span{display:inline-block}
+.emoji{font-family:"Noto Color Emoji";line-height:1}
+.kicker{font-family:var(--f);font-weight:600;font-size:26px;letter-spacing:.28em;color:var(--acc2);text-transform:uppercase}
+
+/* S1 hook */
+#s1{inset:0}
+#burst{left:960px;top:540px;width:1600px;height:1600px;margin:-800px 0 0 -800px;border-radius:50%;background:var(--acc)}
+#s1 .kicker{left:0;right:0;top:330px;text-align:center}
+#s1 .h{left:0;right:0;top:400px;text-align:center;font-family:var(--fd);font-weight:800;font-size:132px;letter-spacing:-.035em;line-height:1.05}
+#s1 .o{color:var(--acc)}
+.ring{left:960px;top:540px;border:3px solid var(--acc);border-radius:50%;opacity:0}
+
+/* S2 categories */
+#s2{inset:0}
+#s2 .kicker{left:150px;top:150px}
+#s2 .title{left:150px;top:196px;font-family:var(--fd);font-weight:800;font-size:76px;letter-spacing:-.03em}
+.cards{left:150px;top:350px;display:flex;gap:40px}
+.card{width:375px;height:520px;border-radius:32px;background:var(--card);position:relative;overflow:hidden;border:2px solid rgba(255,255,255,.06)}
+.card .art{position:absolute;left:0;right:0;top:0;height:330px;display:flex;align-items:center;justify-content:center}
+.card .art .emoji{font-size:170px}
+.card .name{position:absolute;left:36px;top:356px;font-weight:700;font-size:40px;letter-spacing:-.02em}
+.card .price{position:absolute;left:36px;top:418px;font-size:28px;color:var(--mute)}
+.card .price b{color:var(--acc2);font-weight:700}
+.card .tag{position:absolute;right:24px;top:24px;background:var(--acc);color:#fff;font-weight:800;font-size:24px;padding:8px 16px;border-radius:999px;opacity:0}
+.c1 .art{background:linear-gradient(160deg,#3A2A7A,#22306A)}
+.c2 .art{background:linear-gradient(160deg,#1E5A7A,#22306A)}
+.c3 .art{background:linear-gradient(160deg,#2A6A55,#22306A)}
+.c4 .art{background:linear-gradient(160deg,#7A2A55,#22306A)}
+
+/* S3 phone */
+#s3{inset:0}
+.phone{left:300px;top:110px;width:440px;height:880px;border-radius:64px;background:#0A0F24;border:10px solid #2A3570;box-shadow:0 40px 120px rgba(0,0,0,.5);overflow:hidden}
+.phone .top{position:absolute;left:0;right:0;top:0;height:110px;display:flex;align-items:center;justify-content:space-between;padding:30px 34px 0}
+.phone .logo-s{font-weight:800;font-size:28px;letter-spacing:.02em}
+.phone .logo-s i{font-style:normal;color:var(--acc)}
+.cart{position:relative;width:52px;height:52px}
+.cart svg{width:52px;height:52px}
+.badge{position:absolute;right:-10px;top:-8px;width:34px;height:34px;border-radius:50%;background:var(--acc);color:#fff;font-weight:800;font-size:20px;display:flex;align-items:center;justify-content:center;transform:scale(0)}
+.phone .pimg{position:absolute;left:28px;right:28px;top:118px;height:380px;border-radius:30px;background:linear-gradient(160deg,#FF8A4C,#FF5A2C);display:flex;align-items:center;justify-content:center}
+.phone .pimg .emoji{font-size:200px}
+.phone .pname{position:absolute;left:34px;top:526px;font-weight:700;font-size:34px;letter-spacing:-.02em}
+.phone .pmeta{position:absolute;left:34px;top:576px;font-size:24px;color:var(--mute)}
+.phone .pprice{position:absolute;left:34px;top:622px;font-weight:800;font-size:46px;color:var(--acc2)}
+.btn{position:absolute;left:28px;right:28px;top:720px;height:96px;border-radius:24px;background:var(--acc);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:32px;overflow:hidden}
+.btn .done{position:absolute;inset:0;background:var(--mint);color:#06281E;display:flex;align-items:center;justify-content:center;opacity:0}
+.ripple{left:520px;top:878px;width:120px;height:120px;margin:-60px 0 0 -60px;border-radius:50%;border:4px solid #fff;opacity:0}
+.flyer{left:0;top:0;font-size:70px;opacity:0;z-index:6}
+.pointer{left:0;top:0;width:54px;height:66px;opacity:0;z-index:8}
+#s3 .copy{left:880px;top:330px}
+#s3 .copy .kicker{display:block;margin-bottom:22px}
+#s3 .copy .h{font-family:var(--fd);font-weight:800;font-size:112px;letter-spacing:-.035em;line-height:1.02}
+#s3 .copy .h .o{color:var(--acc)}
+#s3 .copy .sub{margin-top:30px;font-size:34px;color:var(--mute);opacity:0}
+
+/* S4 delivery */
+#s4{inset:0}
+#s4 .kicker{left:0;right:0;top:170px;text-align:center}
+#s4 .h{left:0;right:0;top:220px;text-align:center;font-family:var(--fd);font-weight:800;font-size:96px;letter-spacing:-.035em;line-height:1.05}
+#s4 .h .o{color:var(--acc)}
+.road{left:0;top:0;width:1920px;height:1080px}
+.road path{fill:none;stroke:var(--mute);stroke-width:4;stroke-dasharray:18 18;opacity:.5}
+.road .lit{stroke:var(--acc);stroke-width:6;stroke-dasharray:1;stroke-dashoffset:1;opacity:1}
+.truck{left:0;top:0;font-size:96px;z-index:4}
+.pin{left:1640px;top:560px;font-size:84px;transform-origin:50% 100%}
+.pills{left:0;right:0;top:820px;display:flex;justify-content:center;gap:34px}
+.pill{display:flex;align-items:center;gap:16px;background:var(--card);border:2px solid rgba(255,255,255,.08);border-radius:999px;padding:22px 36px 22px 22px;font-weight:700;font-size:32px}
+.pill i{width:52px;height:52px;border-radius:50%;background:var(--mint);display:flex;align-items:center;justify-content:center}
+.pill i svg{width:28px;height:28px}
+
+/* S5 logo */
+#s5{inset:0}
+.mark{left:960px;top:400px;width:200px;height:200px;margin:-100px 0 0 -100px;border-radius:52px;background:var(--acc);display:flex;align-items:center;justify-content:center;box-shadow:0 30px 90px rgba(255,107,44,.45)}
+.mark svg{width:120px;height:120px}
+.word{left:0;right:0;top:540px;text-align:center;font-family:var(--fd);font-weight:900;font-size:150px;letter-spacing:.02em;line-height:1}
+.word span{display:inline-block}
+.word .bd{color:var(--acc)}
+.url{left:0;right:0;top:720px;text-align:center;font-size:48px;font-weight:600;color:var(--mute);letter-spacing:.04em}
+.uline{left:810px;top:788px;width:300px;height:6px;border-radius:3px;background:var(--acc2);transform-origin:0 50%;transform:scaleX(0)}
+.cta{left:960px;top:880px;transform:translateX(-50%);background:#fff;color:var(--bg);font-weight:800;font-size:38px;padding:24px 54px;border-radius:999px;white-space:nowrap}
+</style></head>
+<body data-kind="recipe" data-no="VANT" data-ko="VANT BD" data-en="VANT BD Promo" data-dur="15" data-size="1920x1080" data-poster="14.6"><main class="scene">
+
+<!-- S1: hook -->
+<section id="s1" class="abs">
+  <div id="burst" class="abs"></div>
+  <div class="ring abs r1"></div><div class="ring abs r2"></div>
+  <div class="kicker abs"><span class="mask"><span>VANT BD · Online Shop</span></span></div>
+  <div class="h abs"><span class="mask"><span>Everything you love,</span></span><span class="mask"><span class="o">delivered.</span></span></div>
+</section>
+
+<!-- S2: categories -->
+<section id="s2" class="abs">
+  <div class="kicker abs"><span class="mask"><span>Shop by category</span></span></div>
+  <div class="title abs"><span class="mask"><span>Thousands of products. One place.</span></span></div>
+  <div class="cards abs">
+    <div class="card c1"><div class="art"><span class="emoji">👗</span></div><div class="name">Fashion</div><div class="price">from <b>Tk <span class="n" data-v="499">0</span></b></div></div>
+    <div class="card c2"><div class="art"><span class="emoji">📱</span></div><div class="name">Electronics</div><div class="price">from <b>Tk <span class="n" data-v="1290">0</span></b></div><div class="tag">HOT DEAL</div></div>
+    <div class="card c3"><div class="art"><span class="emoji">🏠</span></div><div class="name">Home &amp; Living</div><div class="price">from <b>Tk <span class="n" data-v="350">0</span></b></div></div>
+    <div class="card c4"><div class="art"><span class="emoji">💄</span></div><div class="name">Beauty</div><div class="price">from <b>Tk <span class="n" data-v="250">0</span></b></div></div>
+  </div>
+</section>
+
+<!-- S3: add to cart -->
+<section id="s3" class="abs">
+  <div class="phone abs">
+    <div class="top"><div class="logo-s">VANT<i>BD</i></div>
+      <div class="cart"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.4 11h10.2L20 8H6.2"/><circle cx="9" cy="19.5" r="1.5"/><circle cx="17" cy="19.5" r="1.5"/></svg><div class="badge">1</div></div></div>
+    <div class="pimg"><span class="emoji">👟</span></div>
+    <div class="pname">Running Sneakers</div>
+    <div class="pmeta">★ 4.8 · Free delivery</div>
+    <div class="pprice">Tk 2,450</div>
+    <div class="btn">Add to Cart<div class="done">✓ Added to cart</div></div>
+  </div>
+  <div class="ripple abs"></div>
+  <div class="flyer abs emoji">👟</div>
+  <svg class="pointer abs" viewBox="0 0 34 42"><path d="M2 2 L2 32 L10 25 L18 40 L24 37 L16 22 L29 22 Z" fill="#fff" stroke="#0E1430" stroke-width="2"/></svg>
+  <div class="copy abs">
+    <span class="kicker mask"><span>Easy checkout</span></span>
+    <div class="h"><span class="mask"><span>Add to cart</span></span><span class="mask"><span class="o">in one tap.</span></span></div>
+    <div class="sub">Secure checkout, bKash &amp; cash on delivery.</div>
+  </div>
+</section>
+
+<!-- S4: delivery -->
+<section id="s4" class="abs">
+  <div class="kicker abs"><span class="mask"><span>Nationwide delivery</span></span></div>
+  <div class="h abs"><span class="mask"><span>Right to your door,</span></span><span class="mask"><span class="o">anywhere in Bangladesh.</span></span></div>
+  <svg class="road abs" viewBox="0 0 1920 1080"><path d="M180 660 C 520 560, 760 760, 1080 650 S 1500 560, 1680 650"/><path class="lit" pathLength="1" d="M180 660 C 520 560, 760 760, 1080 650 S 1500 560, 1680 650"/></svg>
+  <div class="truck abs emoji">🚚</div>
+  <div class="pin abs emoji">📍</div>
+  <div class="pills abs">
+    <div class="pill"><i><svg viewBox="0 0 24 24" fill="none" stroke="#06281E" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>Cash on Delivery</div>
+    <div class="pill"><i><svg viewBox="0 0 24 24" fill="none" stroke="#06281E" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>Fast Shipping</div>
+    <div class="pill"><i><svg viewBox="0 0 24 24" fill="none" stroke="#06281E" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>Easy Returns</div>
+  </div>
+</section>
+
+<!-- S5: logo + CTA -->
+<section id="s5" class="abs">
+  <div class="mark abs"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1.2 11.2a1 1 0 0 1-1 .8H8.2a1 1 0 0 1-1-.8z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/><path d="M9.5 12l2.5 4 2.5-4"/></svg></div>
+  <div class="word abs"><span>V</span><span>A</span><span>N</span><span>T</span><span>&nbsp;</span><span class="bd">B</span><span class="bd">D</span></div>
+  <div class="url abs">www.vantbd.com</div>
+  <div class="uline abs"></div>
+  <div class="cta abs">Shop now →</div>
+</section>
+
+</main><script src="../../lib/gsap.min.js"></script><script src="../../lib/stage.js"></script><script>
+const tl = Motion.timeline();
+const q = s => document.querySelectorAll(s);
+gsap.set(['#s2','#s3','#s4','#s5'],{autoAlpha:0});
+gsap.set('.mask>span',{yPercent:110});
+
+/* S1 hook 0–3.2 */
+tl.fromTo('#burst',{scale:0},{scale:1.35,duration:.75,ease:'power3.in'},.05);
+tl.set('#burst',{backgroundColor:'#0E1430'},.8);
+tl.fromTo('.r1',{width:40,height:40,x:-20,y:-20,opacity:1},{width:900,height:900,x:-450,y:-450,opacity:0,duration:1.2,ease:'power2.out',immediateRender:false},.8);
+tl.fromTo('.r2',{width:40,height:40,x:-20,y:-20,opacity:.7},{width:1400,height:1400,x:-700,y:-700,opacity:0,duration:1.4,ease:'power2.out',immediateRender:false},.95);
+tl.to('#s1 .kicker .mask>span',{yPercent:0,duration:.7},.85);
+tl.to('#s1 .h .mask>span',{yPercent:0,duration:1.0,stagger:.3},1.0);
+tl.fromTo('#s1 .h .o',{scale:1},{scale:1.06,duration:.25,yoyo:true,repeat:1,ease:'power2.inOut'},2.15);
+tl.to('#s1 .mask>span',{yPercent:-110,duration:.5,ease:'power3.in',stagger:.06},2.85);
+tl.set('#s1',{autoAlpha:0},3.4);
+
+/* S2 categories 3.3–6.7 */
+tl.set('#s2',{autoAlpha:1},3.3);
+tl.to('#s2 .mask>span',{yPercent:0,duration:.8,stagger:.12},3.3);
+tl.fromTo('.card',{y:140,opacity:0,rotation:3},{y:0,opacity:1,rotation:0,duration:.85,stagger:.12,ease:'back.out(1.4)'},3.55);
+q('.n').forEach((el,i)=>{const o={v:0},v=+el.dataset.v;
+  tl.to(o,{v,duration:.9,ease:'power2.out',onUpdate:()=>{el.textContent=Math.round(o.v).toLocaleString('en-US');}},3.9+i*.12);});
+tl.to('.c2',{scale:1.06,y:-14,borderColor:'#FF6B2C',duration:.45,ease:'power3.out'},5.15);
+tl.fromTo('.c2 .tag',{scale:0,opacity:0},{scale:1,opacity:1,duration:.4,ease:'back.out(2.5)'},5.3);
+tl.to(['.c1','.c3','.c4'],{opacity:.55,duration:.45},5.15);
+tl.to('.card',{x:-260,opacity:0,duration:.5,stagger:.05,ease:'power3.in'},6.25);
+tl.to('#s2 .mask>span',{yPercent:-110,duration:.45,ease:'power3.in'},6.25);
+tl.set('#s2',{autoAlpha:0},6.95);
+
+/* S3 add to cart 6.8–10.1 */
+tl.set('#s3',{autoAlpha:1},6.8);
+tl.fromTo('.phone',{y:240,opacity:0,rotation:-4},{y:0,opacity:1,rotation:0,duration:.9,ease:'power3.out'},6.8);
+tl.to('#s3 .mask>span',{yPercent:0,duration:.85,stagger:.15},7.0);
+tl.to('#s3 .sub',{opacity:1,duration:.5},7.7);
+tl.set('.pointer',{opacity:1},7.4);
+const p={t:0};
+tl.to(p,{t:1,duration:.75,ease:'power2.inOut',onUpdate:()=>{const t=p.t;gsap.set('.pointer',{x:1100-590*t,y:1000-110*t-80*Math.sin(Math.PI*t)});}},7.4);
+tl.to('.btn',{scale:.94,duration:.1,ease:'power2.in'},8.15);
+tl.to('.btn',{scale:1,duration:.25,ease:'back.out(3)'},8.25);
+tl.fromTo('.ripple',{scale:.4,opacity:.9},{scale:2.6,opacity:0,duration:.5,ease:'power2.out',immediateRender:false},8.18);
+tl.to('.btn .done',{opacity:1,duration:.2},8.25);
+tl.to('.pointer',{opacity:0,duration:.25},8.5);
+const f={t:0};
+tl.set('.flyer',{opacity:1},8.25);
+tl.to(f,{t:1,duration:.6,ease:'power1.in',onUpdate:()=>{const t=f.t;gsap.set('.flyer',{x:470+(160)*t,y:300-150*t-200*Math.sin(Math.PI*t)+(-30)*t,scale:1-.7*t,opacity:t>.95?0:1});}},8.25);
+tl.fromTo('.badge',{scale:0},{scale:1,duration:.45,ease:'back.out(3)'},8.85);
+tl.fromTo('.cart',{rotation:0},{rotation:-14,duration:.1,yoyo:true,repeat:3,ease:'sine.inOut'},8.85);
+tl.to(['.phone','#s3 .copy'],{y:-120,opacity:0,duration:.5,ease:'power3.in',stagger:.05},9.7);
+tl.set('#s3',{autoAlpha:0},10.3);
+
+/* S4 delivery 10.2–12.8 */
+tl.set('#s4',{autoAlpha:1},10.2);
+tl.to('#s4 .mask>span',{yPercent:0,duration:.8,stagger:.14},10.2);
+tl.fromTo('.road',{opacity:0},{opacity:1,duration:.3},10.35);
+
+const pathEl=document.querySelector('.road path');const len=pathEl.getTotalLength();
+const tr={t:0};
+tl.to('.road .lit',{strokeDashoffset:0,autoRound:false,duration:1.5,ease:'power2.inOut'},10.5);
+tl.to(tr,{t:1,duration:1.5,ease:'power2.inOut',onUpdate:()=>{const pt=pathEl.getPointAtLength(len*tr.t*.86);gsap.set('.truck',{x:pt.x-48,y:pt.y-92});}},10.5);
+tl.set('.truck',{x:132,y:568,scaleX:-1},0);
+tl.fromTo('.pin',{scale:0,y:-40},{scale:1,y:0,duration:.5,ease:'back.out(3)'},11.8);
+tl.fromTo('.pill',{y:60,opacity:0,scale:.9},{y:0,opacity:1,scale:1,duration:.55,stagger:.15,ease:'back.out(1.8)'},11.0);
+tl.to('#s4 > *',{opacity:0,y:-60,duration:.45,ease:'power3.in',stagger:.03},12.45);
+tl.set('#s4',{autoAlpha:0},13.1);
+
+/* S5 logo 12.9–15 */
+tl.set('#s5',{autoAlpha:1},12.85);
+tl.fromTo('.mark',{scale:0,rotation:-90},{scale:1,rotation:0,duration:.7,ease:'back.out(1.8)'},12.9);
+tl.fromTo('.word span',{y:120,opacity:0},{y:0,opacity:1,duration:.6,stagger:.05,ease:'power3.out'},13.15);
+tl.fromTo('.url',{opacity:0,y:20},{opacity:1,y:0,duration:.5},13.6);
+tl.to('.uline',{scaleX:1,duration:.6,ease:'power2.out'},13.8);
+tl.fromTo('.cta',{opacity:0,y:30,scale:.9},{opacity:1,y:0,scale:1,duration:.55,ease:'back.out(2)'},13.95);
+tl.to('.cta',{scale:1.05,duration:.3,yoyo:true,repeat:1,ease:'sine.inOut'},14.5);
+
+Motion.ready();
+</script></body></html>
